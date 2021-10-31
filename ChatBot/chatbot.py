@@ -20,4 +20,20 @@ while x <= y:
     print(str(x) + "!")
     x += 1
 print("Completed, have a nice day!")
-
+# "ChatBot 5-th stage"
+line_q = """Let's test your programming knowledge.
+Why do we use methods?
+1. To repeat a statement multiple times.
+2. To decompose a program into several small subroutines.
+3. To determine the execution time of a program.
+4. To interrupt the execution of a program."""
+print(line_q)
+s = int(input(">"))
+while True:
+    if s == 3:
+        print("Completed, have a nice day!")
+        break
+    else:
+        print("Please, try again.")
+        s = int(input(">"))
+    print("Congratulations, have a nice day!")
