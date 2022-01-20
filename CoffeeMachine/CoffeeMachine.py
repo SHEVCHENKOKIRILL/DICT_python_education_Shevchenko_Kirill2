@@ -1,4 +1,4 @@
-# CoffeeMachine
+# CoffeeMachine 1
 class CoffeeMachine:
     def __init__(self):
         self.water = 200
