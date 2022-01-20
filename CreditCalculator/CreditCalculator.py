@@ -37,4 +37,39 @@ if c == "p":
 else:
     print("No correct!")
 
-
+# CreditCalculator 3
+import math
+from math import ceil
+text = input("""
+What do you want to calculate?
+type "n" for number of monthly payments,
+type "a" for annuity monthly payment amount,
+type "p" for loan principal:""")
+if text == "n":
+    p = int(input("Enter the loan principal: "))
+    m = int(input("Enter the monthly payment: "))
+    l = float(input("Enter the loan interest: "))
+    i = l / (12 * 100)
+    n = math.ceil(math.log(float(m) / (float(m) - i * float(p)), i + 1))
+    o = divmod(n, 12)
+    if n > 12:
+        print("It will take {} years and {} months to repay this loan!".format(o[0], o[1]))
+    elif n == 12:
+        print("It will take {} years to repay this loan!".format(o[0]))
+    else:
+        print("It will take {} months to repay this loan!".format(o[1]))
+elif text == "a":
+    pr = int(input("Enter the loan principal: "))
+    pe = int(input("Enter the number of periods: "))
+    int = float(input("Enter the loan interest: "))
+    i = int / (12 * 100)
+    y = math.ceil(pr * (i * ((1 + i) ** pe)) / (((1 + i) ** pe) - 1))
+    print("Your monthly payment = {}!".format(y))
+elif text == "p":
+    y = float(input("Enter the annuity payment: "))
+    pe = int(input("Enter the number of periods: "))
+    int = float(input("Enter the loan interest: "))
+    i = int / (12 * 100)
+    p = y / (i*(1+i)**pe)/(((1+i)*pe) - 1)
+    finish = round(y / ((i * math.pow(1 + i, pe)) / (math.pow(1 + i, pe) - 1)))
+    print("Your loan principal = {}!".format(finish))
