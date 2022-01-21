@@ -16,6 +16,15 @@ if b == random.choice(words):
     print("You survived!")
 else:
     print("You lost")
+# Hangman4
+words = ["fire", "earth", "water", "ice"]
+r = random.choice(words)
+v = "-" * len(r[2:])
+guess = input("Guess the word (fire, earth, water, ice) "+(r[:2]+v)+":>")
+if guess == r:
+    print("You survived!")
+else:
+    print("You lost!")
 
 
 
