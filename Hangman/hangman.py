@@ -25,6 +25,34 @@ if guess == r:
     print("You survived!")
 else:
     print("You lost!")
+# Hangman5
+words = ["sword", "axe", "shield", "boom"]
+word = random.choice(words)
+u = "_" * len(word)
+g = False
+tries = 8
+l = []
+print(u)
+while not g and tries > 0:
+    s = input("Input a letter: >").lower()
+    if len(s) == 1:
+        if s in word:
+            l.append(s)
+            word_list = list(u)
+            f = [i for i, letter in enumerate(word) if letter == s]
+            for index in f:
+                word_list[index] = s
+            u = "".join(word_list)
+            if "_" not in u:
+                print("The word is", word, "\nYou win")
+                break
+            tries -= 1
+            print(u)
+        else:
+            tries -= 1
+            print("That letter doesn't appear in the word")
+else:
+    print("Thank for playing!\nWe'll see how well you did in the next stage")
 
 
 
