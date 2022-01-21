@@ -83,6 +83,39 @@ while not guessed and tries > 0:
             print("That letter doesn't appear in the word")
 else:
     print("Thanks for playing!\nWe'll see how well you did in the next stage")
-
+# Hangman7
+words = ["sword", "axe", "shield", "boom"]
+word = random.choice(words)
+u = "_" * len(word)
+guessed = False
+tries = 8
+le = []
+print(u)
+while not guessed and tries > 0:
+    g = input("Input a letter: >")
+    if len(g) == 1:
+        if g.islower() and g.isalpha():
+            if g in word:
+                if g in le:
+                    print("You've already guessed this letter.")
+                le.append(g)
+                word_list = list(u)
+                f = [i for i, letter in enumerate(word) if letter == g]
+                for index in f:
+                    word_list[index] = g
+                u = "".join(word_list)
+                print(u)
+                if "_" not in u:
+                    print("You guessed the word", word, "!\nYou survived!")
+                    break
+            else:
+                tries -= 1
+                print("That letter doesn't appear in the word")
+        else:
+            print("Please enter a lowercase English letter.")
+    else:
+        print("You should input a single letter.")
+else:
+    print("The word is", word, "!\nYou lost")
 
 
